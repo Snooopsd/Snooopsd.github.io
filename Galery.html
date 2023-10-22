@@ -5,7 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-widgth, initial-scale=1.0">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="./styles/MainPageNoAuth/body_style.css">
+        <link rel="stylesheet" href="./styles/GalleryPage/body_style.css">
+        <link rel="stylesheet" href="./styles/GalleryPage/header_style.css">
+        <link rel="stylesheet" href="./styles/GalleryPage/footer_style.css">
+        <link rel="stylesheet" href="./styles/GalleryPage/main_style.css">
         <title>PupuWoo</title>
     </head>
     <body>
@@ -14,21 +17,48 @@
                 <div class="logo">
                     <a href="/"><img src="./images/logo.svg"></a>
                 </div>
-                <div class="search">
-                    <form class="search-form">
-                        <input class="search-input" type="text" placeholder="Поиск фотографий или авторов">
-                        <button class="search-button" type="submit"></button>
-                    </form>
+                <div class="menu-icon" id="menu-icon">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <nav>
+                        <ul>
+                            <li></li>
+                            <li>
+                                <button class="login">Логин</button>
+                            </li>
+                            <li>
+                                <button class="register">Регистрация</button>
+                            </li>
+                            <li>
+                                <form class="search-form">
+                                    <input class="search-input" type="text" placeholder="Поиск фотографий или авторов">
+                                    <button class="search-button" type="submit"></button>
+                                </form>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <div class="buttons">
-                    <button class="login">Логин</button>
-                    <button class="register">Регистрация</button>
+                <div class="menu">
+                    <div class="search">
+                        <form class="search-form">
+                            <input class="search-input" type="text" placeholder="Поиск фотографий или авторов">
+                            <button class="search-button" type="submit"></button>
+                        </form>
+                    </div>
+                    <div class="buttons">
+                        <button class="login">Логин</button>
+                        <button class="register">Регистрация</button>
+                    </div>
                 </div>
             </header>
         </section>
         <section> <!--Тело страницы-->
-            <div class="section-name">
+            <div class="section-name"> <!--Название раздела-->
                 <h1>Галерея</h1>
+            </div>
+            <div class="section-photos"> <!--Тело для фоток-->
+                
             </div>
         </section>
         <section> <!--Футер-->
@@ -48,5 +78,14 @@
                 </div>
             </footer>
         </section>
+
+        <script>
+            const menuIcon = document.getElementById("menu-icon");
+            const nav = document.querySelector("nav");
+
+            menuIcon.addEventListener("click", () => {
+                nav.classList.toggle("active"); // Добавить или удалить класс "active" у элемента nav
+            });
+        </script>
     </body>
 </html>
