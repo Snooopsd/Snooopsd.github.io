@@ -58,7 +58,37 @@
                 <h1>Галерея</h1>
             </div>
             <div class="section-photos"> <!--Тело для фоток-->
-                
+                <div class="add-button">
+                    <button id="open-modal">+</button>
+                </div>
+
+                <div id="overlay"></div>
+
+                <div id="myModal" class="modal">
+                    <div class="modal-name">
+                        <img src="./images/back.svg" id="back-button" alt="Назад">
+                        <h1>Публикация фотографии</h1>
+                    </div>
+                    <div class="modal-content">
+                        <div class="left-section">
+                            <input type="file" id="fileInput">
+                            <img id="uploadImage" alt="Загрузите фотографию" src="./images/background/BackgroundImage001.jpg">
+                            <button id="uploadButton">Загрузить фотографию</button>
+                        </div>
+                        <div class="right-section">
+                            <input type="text" id="imageTitle" placeholder="Название фотографии">
+                            <button id="publishButton">Опубликовать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="photo-tile">
+                    <img src="photo1.jpg" alt="Фотография 1">
+                    <div class="photo-details">
+                        <p>Название фотографии 1</p>
+                        <p>Автор: Имя Автора</p>
+                    </div>
+                </div>
             </div>
         </section>
         <section> <!--Футер-->
@@ -85,6 +115,51 @@
 
             menuIcon.addEventListener("click", () => {
                 nav.classList.toggle("active"); // Добавить или удалить класс "active" у элемента nav
+            });
+        </script>
+        <script>
+            const openButton = document.getElementById('open-modal');
+            const closeButton = document.getElementById('back-button');
+            const modal = document.getElementById('myModal');
+            const overlay = document.getElementById('overlay');
+            const fileInput = document.getElementById("fileInput");
+            const uploadedImage = document.getElementById("uploadedImage");
+            const imageTitle = document.getElementById("imageTitle");
+            const publishButton = document.getElementById("publishButton");
+            const uploadButton = document.getElementById("uploadButton");
+            
+            openButton.addEventListener('click', () => {
+                modal.style.display = 'block';
+                overlay.style.display = 'block';
+            });
+
+            closeButton.addEventListener('click', () => {
+                modal.style.display = 'none';
+                overlay.style.display = 'none';
+            });
+
+            // Обработчик нажатия кнопки "Загрузить фотографию"
+            uploadButton.addEventListener("click", openModal);
+
+            // Обработчик выбора файла
+            fileInput.addEventListener("change", function() {
+                const file = fileInput.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        uploadedImage.src = e.target.result;
+                        uploadedImage.style.display = "block";
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Обработчик нажатия кнопки "Опубликовать"
+            publishButton.addEventListener("click", function() {
+                const title = imageTitle.value;
+                // Здесь можно обработать данные и отправить на сервер, если необходимо
+                // Затем можно закрыть модальное окно
+                closeModal();
             });
         </script>
     </body>
