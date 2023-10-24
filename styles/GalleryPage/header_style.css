@@ -28,9 +28,6 @@ header {
     color: #fff;
     padding: 10px 10px;
     font-size: 20px;
-}
-
-.login .register {
     cursor: pointer;
 }
 
@@ -137,6 +134,7 @@ nav {
     max-width: 90vw;
     display: none;
     background-color: rgba(3, 29, 24, 0.25);
+    z-index: 5;
 }
 
 nav ul {

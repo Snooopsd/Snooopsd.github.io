@@ -25,7 +25,7 @@
                         <ul>
                             <li></li>
                             <li>
-                                <button class="login">Логин</button>
+                                <button id="login-btn2" class="login">Логин</button>
                             </li>
                             <li>
                                 <button class="register">Регистрация</button>
@@ -47,7 +47,7 @@
                         </form>
                     </div>
                     <div class="buttons">
-                        <button class="login">Логин</button>
+                        <button id="login-btn" class="login">Логин</button>
                         <button class="register">Регистрация</button>
                     </div>
                 </div>
@@ -107,6 +107,23 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <div id="login-modal" class="modal">
+                    <div class="modal-name">
+                        <h2 id="modal-title" style="font-size: 22px;">Заголовок модального окна</h2>
+                    </div>
+                    <div class="modal-content login-content">
+                        <div class="oval-input">
+                            <label for="login">Логин:</label>
+                            <input type="text" id="login" placeholder="Введите ваш логин">
+                        </div>
+                        <div class="oval-input">
+                            <label for="password">Пароль:</label>
+                            <input type="password" id="password" placeholder="Введите ваш пароль">
+                        </div>
+                        <button id="login-button">Авторизоваться</button>
                     </div>
                 </div>
 
@@ -235,9 +252,6 @@
                 overlay.style.display = 'none';
             });
 
-            // Обработчик нажатия кнопки "Загрузить фотографию"
-            uploadButton.addEventListener("click", openModal);
-
             // Обработчик выбора файла
             fileInput.addEventListener("change", function() {
                 const file = fileInput.files[0];
@@ -313,6 +327,43 @@
                     const modal = document.getElementById("look-photo-modal");
                     modal.style.display = "none";
                     overlay.style.display = "none";
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Получите кнопку в шапке, которая будет открывать модальное окно авторизации
+                const loginBtn = document.getElementById("login-btn");
+                const loginBtn2 = document.getElementById("login-btn2");
+                
+                // Получите модальное окно авторизации
+                const loginModal = document.getElementById("login-modal");
+                const overlay = document.getElementById('overlay');
+                
+                loginBtn2.addEventListener('click', () => {
+                    console.log('Кнопка "Логин" была нажата');
+                    loginModal.style.display = 'block';
+                    overlay.style.display = 'block';
+                });
+
+                loginBtn.addEventListener('click', () => {
+                    console.log('Кнопка "Логин" была нажата');
+                    loginModal.style.display = 'block';
+                    overlay.style.display = 'block';
+                });
+        
+                // Добавьте обработчик события для закрытия модального окна при клике за его пределами
+                overlay.addEventListener("click", () => {
+                    loginModal.style.display = "none";
+                    overlay.style.display = "none";
+                });
+                
+                // Добавьте обработчик события для закрытия модального окна при нажатии на клавишу "Esc"
+                document.addEventListener("keydown", (event) => {
+                    if (event.key === "Escape") {
+                        loginModal.style.display = "none";
+                        overlay.style.display = "none";
+                    }
                 });
             });
         </script>

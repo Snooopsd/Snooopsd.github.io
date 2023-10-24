@@ -221,3 +221,51 @@
     cursor: pointer;
     margin-top: 5px;
 }
+
+#login-modal {
+    background-color: #808080;
+    width: 300px;
+    height: auto;
+    display: none;
+    z-index: 3;
+    border: 1px solid #fff;
+    border-radius: 30px;
+}
+
+.login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.oval-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.oval-input label {
+    margin-right: 10px;
+    color: #fff;
+}
+
+.oval-input input {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #000;
+}
+
+.modal-content login-content button {
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+}
