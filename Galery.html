@@ -28,7 +28,7 @@
                                 <button id="login-btn2" class="login">Логин</button>
                             </li>
                             <li>
-                                <button class="register">Регистрация</button>
+                                <button id="registerBtn1" class="register">Регистрация</button>
                             </li>
                             <li>
                                 <form class="search-form">
@@ -48,7 +48,7 @@
                     </div>
                     <div class="buttons">
                         <button id="login-btn" class="login">Логин</button>
-                        <button class="register">Регистрация</button>
+                        <button id="registerBtn2" class="register">Регистрация</button>
                     </div>
                 </div>
             </header>
@@ -112,7 +112,7 @@
 
                 <div id="login-modal" class="modal">
                     <div class="modal-name">
-                        <h2 id="modal-title" style="font-size: 22px;">Заголовок модального окна</h2>
+                        <h2 id="modal-title" style="font-size: 22px;">Авторизация</h2>
                     </div>
                     <div class="modal-content login-content">
                         <div class="oval-input">
@@ -124,6 +124,47 @@
                             <input type="password" id="password" placeholder="Введите ваш пароль">
                         </div>
                         <button id="login-button">Авторизоваться</button>
+                    </div>
+                </div>
+
+                <div id="register-modal" class="modal">
+                    <div class="modal-name">
+                        <h2 id="modal-title" style="font-size: 22px;">Регистрация</h2>
+                    </div>
+                    <div class="modal-content login-content">
+                        <div class="oval-input">
+                            <label for="login">Фамилия:</label>
+                            <input type="text" id="login" placeholder="Введите ваше имя">
+                        </div>
+                        <div class="oval-input">
+                            <label for="password">Имя:</label>
+                            <input type="password" id="password" placeholder="Введите вашу фамилию">
+                        </div>
+                        <div class="oval-input">
+                            <label for="password">Отчество:</label>
+                            <input type="password" id="password" placeholder="Введите ваше отчество">
+                        </div>
+                        <div class="oval-input">
+                            <label for="password">Электронная почта:</label>
+                            <input type="password" id="password" placeholder="Введите ваш email">
+                        </div>
+                        <div class="oval-input">
+                            <label for="password">Дата рождения:</label>
+                            <input type="password" id="password" placeholder="Введите вашу дату рождения">
+                        </div>
+                        <div class="oval-input">
+                            <label for="password">Логин:</label>
+                            <input type="password" id="password" placeholder="Введите ваш логин">
+                        </div>
+                        <div class="oval-input">
+                            <label for="password">Пароль:</label>
+                            <input type="password" id="password" placeholder="Введите ваш пароль">
+                        </div>
+                        <div class="oval-input">
+                            <label for="password">Повторите пароль:</label>
+                            <input type="password" id="password" placeholder="Повторите пароль">
+                        </div>
+                        <button id="login-button">Зарегистрироваться</button>
                     </div>
                 </div>
 
@@ -365,6 +406,26 @@
                         overlay.style.display = "none";
                     }
                 });
+            });
+        </script>
+        <script>
+            const registerBtn1 = document.getElementById('registerBtn1');
+            const registerBtn2 = document.getElementById('registerBtn2');
+            const reg_model = document.getElementById('register-modal');
+
+            registerBtn1.addEventListener('click', () => {
+                reg_model.style.display = 'block';
+                overlay.style.display = 'block';
+            });
+
+            registerBtn2.addEventListener('click', () => {
+                reg_model.style.display = 'block';
+                overlay.style.display = 'block';
+            });
+
+            overlay.addEventListener('click', () => {
+                reg_model.style.display = 'none';
+                overlay.style.display = 'none';
             });
         </script>
     </body>
